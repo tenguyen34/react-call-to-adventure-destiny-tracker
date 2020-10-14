@@ -7,35 +7,55 @@ import { Button } from '@material-ui/core';
 export default function Home() {
   // TODOs for improvement
     // handle destiny story card special effects
-    // have decrease onClick reflect in destiny score
     // css fixes
     // have reset button rerender components
 
-  const [destinyScore, setDestinyScore] = useState(-1);  // does default case on page load
+  const [destinyScore, setDestinyScore] = useState(0);
   const [revealDestiny, setRevealDestiny] = useState(false);
-  const eventhandler = (type, data) => {
+  const eventhandler = (type, action, data) => {
+    console.log(action);
     switch (type) {
       case "ability":
         break;
       case "story":
-        addStoryScore(data);
+        if (action === "increase") {
+          addStoryScore(data);
+        } else {
+          subtractStoryScore(data);
+        }
         break;
       default:
         // covers 'normal case'
-        addNormalScore();
+        if (action === "increase") {
+          addNormalScore();
+        } else if (action === "decrease") {
+          subtractNormalScore();
+        }
     }
   }
 
   const addStoryScore = (data) => {
     if (data === 2 || data === 3) {
-      setDestinyScore(destinyScore + 2)
+      setDestinyScore(destinyScore + 2);
     } else if (data === 4) {
-      setDestinyScore(destinyScore + 4)
+      setDestinyScore(destinyScore + 4);
+    }
+  }
+
+  const subtractStoryScore = (data) => {
+    if (data === 1 || data === 2) {
+      setDestinyScore(destinyScore - 2);
+    } else if (data === 3) {
+      setDestinyScore(destinyScore - 4);
     }
   }
 
   const addNormalScore = () => {
-    setDestinyScore(destinyScore + 1)
+    setDestinyScore(destinyScore + 1);
+  }
+
+  const subtractNormalScore = () => {
+    setDestinyScore(destinyScore - 1);
   }
 
   const reset = () => {
@@ -91,7 +111,7 @@ export default function Home() {
         >
           <Button size="large" variant="contained" onClick={reset} >Reset</Button>
           <Button color="secondary" size="large" variant="contained" onClick={showDestinyScore}>Calculate</Button>
-          {revealDestiny && <div>{destinyScore}</div>}
+          {revealDestiny && <div>Destiny Score: {destinyScore}</div>}
         </Grid>
       </div>
     </div>
