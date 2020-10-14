@@ -1,0 +1,22 @@
+{
+  "name": "react-call-to-adventure-destiny-tracker",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "list-files": "^1.1.4",
+    "list-react-files": "^0.2.0",
+    "next": "9.5.5",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  },
+  "devDependencies": {
+    "prettier": "2.1.2"
+  }
+}

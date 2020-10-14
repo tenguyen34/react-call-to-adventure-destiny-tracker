@@ -1,0 +1,14 @@
+.group {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+  padding: 4px;
+}
+
+.textField {
+  width: 64px;
+}
