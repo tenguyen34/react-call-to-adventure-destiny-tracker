@@ -2,7 +2,7 @@ import Head from 'next/head'
 import React, { useState } from 'react';
 import IconCounter from '../components/iconCounter'
 import Grid from '@material-ui/core/Grid';
-import { Button } from '@material-ui/core';
+import { Button, TextField } from '@material-ui/core';
 
 export default function Home() {
   // TODOs for improvement
@@ -74,6 +74,10 @@ export default function Home() {
       </Head>
 
       <div>
+        <TextField
+          label="Name"
+          variant="outlined"
+        />
         <Grid
           container
           direction="row"
